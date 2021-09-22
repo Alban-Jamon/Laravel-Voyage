@@ -18,6 +18,6 @@ class StaticController extends Controller
 
     public function trip($id)
     {
-        return view('trip');
+        return view('trip', ['id'=>$id]);
     }
 }
