@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Aide concernant les chemins 
+- http://localhost:8000/admin/home -> accueil
+- http://localhost:8000/admin/trips -> Page de gestion des Voyages
+- http://localhost:8000/admin/lesVoyages -> Page qui affiche les 10 voyages les plus vues 
+
+Toutes les pages créés pour les admins ne sont pas accesibles via le menu de navigation et doivent être saisie à la main
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
