@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Voyage;
+use DateTime;
 use Illuminate\Http\Request;
+
 
 class VoyageController extends Controller
 {
@@ -61,13 +63,13 @@ class VoyageController extends Controller
         Voyage::create([
             'location' => $request->location,
             'description' => $request->description,
-            'travelDate' => $request->travelDate,
+            'travelDate' =>$request->travelDate,
             'price' => $request->price,
             'organizer' => $request->organizer,
             'note' => $request->note,
             'views' => $request->views
         ]);
-        return redirect('posts');
+        return redirect(route('gestion'));
     }
 
     /**
@@ -78,7 +80,8 @@ class VoyageController extends Controller
      */
     public function show($id)
     {
-        //
+        $voyage = Voyage::find($id);
+        return view('admin\show',['voyage' => $voyage]);
     }
 
     /**
@@ -101,7 +104,7 @@ class VoyageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -112,6 +115,7 @@ class VoyageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Voyage::find($id)->delete();          
+        return redirect(route('gestion'));
     }
 }

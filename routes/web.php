@@ -35,7 +35,10 @@ Route::get('contact', function(){
 Route::prefix('admin')->group(function(){
     Route::get('home', [VoyageController::class, 'index']);
     Route::get('lesVoyages', [VoyageController::class, 'someTrips']);
-    Route::get('trips', [VoyageController::class, 'gestion']);
-    Route::get('addTrip',[VoyageController::class, 'create'] );
+    Route::get('trips', [VoyageController::class, 'gestion'])->name('gestion');
+    Route::get('addTrip',[VoyageController::class, 'create'] )->name('addTrip');
     Route::post('addTrip',[VoyageController::class, 'store'] )->name('store');
+    Route::get('show/{id}',[VoyageController::class, 'show'] )->name('show');
+
+    Route::get('destroyTrip/{id}',[VoyageController::class, 'destroy'])->name('destroy');
 });

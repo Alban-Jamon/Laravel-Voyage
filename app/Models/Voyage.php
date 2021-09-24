@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Voyage extends Model
 {
     use HasFactory;
-    protected $fillable = ['location','description','traveDate', 'price', 'organizer', 'note', 'views'];
+    protected $fillable = ['location','description','travelDate', 'price', 'organizer', 'note', 'views'];
 }
