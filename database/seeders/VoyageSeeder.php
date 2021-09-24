@@ -2,17 +2,18 @@
 
 namespace Database\Seeders;
 
+use App\Models\Voyage;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class VoyageSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([VoyageSeeder::class]);
+        Voyage::factory()->count(20)->create();
     }
 }
