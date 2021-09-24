@@ -14,19 +14,30 @@ class VoyageController extends Controller
      */
     public function index()
     {
-        $voyages = Voyage::all();
-        return view('admin\lesVoyages',['voyages' => $voyages]);
+        $voyages = Voyage::all()->sortBy('views',SORT_REGULAR,true)->take(4);
+        return view('admin\home',['voyages' => $voyages]);
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of 10 resources.
      *
      * @return \Illuminate\Http\Response
      */
     public function someTrips()
     {
-        $voyages = Voyage::all();
+        $voyages = Voyage::all()->sortBy('views',SORT_REGULAR,true)->take(10);
         return view('admin\lesVoyages',['voyages' => $voyages]);
+    }
+
+    /**
+     * Display a listing of all resources with gestions buttons.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function gestion()
+    {
+        $voyages = Voyage::all();
+        return view('admin\trips',['voyages' => $voyages]);
     }
 
     /**
@@ -36,7 +47,7 @@ class VoyageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin\addVoyage');
     }
 
     /**
@@ -47,7 +58,16 @@ class VoyageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Voyage::create([
+            'location' => $request->location,
+            'description' => $request->description,
+            'travelDate' => $request->travelDate,
+            'price' => $request->price,
+            'organizer' => $request->organizer,
+            'note' => $request->note,
+            'views' => $request->views
+        ]);
+        return redirect('posts');
     }
 
     /**
