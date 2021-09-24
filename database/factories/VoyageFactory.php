@@ -27,7 +27,8 @@ class VoyageFactory extends Factory
             'travelDate' => $this->faker->date('Y-m-d'),
             'price' => $this->faker->randomFloat(2,500,9999),
             'organizer' => $this->faker->company(),
-            'note' => $this->faker->numberBetween(0,5)
+            'note' => $this->faker->numberBetween(0,5),
+            'views' => $this->faker->numberBetween(0,99999)
         ];
     }
 }

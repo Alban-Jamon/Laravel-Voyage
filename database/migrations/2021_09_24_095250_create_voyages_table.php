@@ -22,6 +22,7 @@ class CreateVoyagesTable extends Migration
             $table->float('price',6,2,true);
             $table->string('organizer');
             $table->integer('note');
+            $table->integer('views');
         });
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VoyageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,11 @@ Route::get('aboutus', function(){
 Route::get('contact', function(){
     return view('contact');
 })->name('contact');
+
+
+
+// admin Route 
+
+Route::prefix('admin')->group(function(){
+    Route::get('lesVoyages', [VoyageController::class, 'someTrips']);
+});
